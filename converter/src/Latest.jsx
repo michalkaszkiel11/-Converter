@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import currencyFlags from "./flags";
-export const Latest = () => {
-    const [rates, setRates] = useState([]);
+
+export const Latest = ({ rates, setRates, setLoading }) => {
     const [dates, setDates] = useState("");
 
     useEffect(() => {
@@ -21,9 +21,8 @@ export const Latest = () => {
                 } else {
                     console.error("Invalid data structure:", data);
                 }
-
-                console.log(rates);
             } catch (error) {
+                setLoading(false);
                 console.log(error);
             }
         }
@@ -37,8 +36,11 @@ export const Latest = () => {
 
     return (
         <div className="latest">
+            {/* <Calendared /> */}
             <div className="latest-head">
-                <h2>Pick a desired date to check rates that day</h2>
+                <h2 style={{ color: "white" }}>
+                    Pick a desired date to check rates that day
+                </h2>
                 <input
                     type="text"
                     value={dates}
@@ -49,7 +51,7 @@ export const Latest = () => {
             </div>
             <table className="currency-table">
                 <thead>
-                    <tr style={{ backgroundColor: "#f1f5f0" }}>
+                    <tr className="table-head">
                         <th>Country</th>
                         <th>Currency</th>
                         <th>Rate</th>

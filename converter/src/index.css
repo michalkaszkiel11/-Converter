@@ -4,6 +4,7 @@
     flex-direction: column;
 }
 .row {
+    gap: 1rem;
     width: 100%;
     height: 100%;
     display: flex;
@@ -13,6 +14,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: "Roboto Slab", serif;
+    font-optical-sizing: auto;
 }
 body {
     width: 100vw;
@@ -24,14 +27,13 @@ body {
     height: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
 }
 
 .box {
     width: 65vw;
     height: 100vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     background-color: rgb(240, 240, 240);
@@ -40,19 +42,43 @@ body {
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
+    gap: 3rem;
+}
+.welcome-box {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    width: 90%;
+    height: fit-content;
+    background: linear-gradient(90deg, #d47940, #004991);
+    border-radius: 2rem;
+    box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
 }
 .currencies {
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .shop {
     width: 800px;
-    height: calc(542.891px + 350px);
+    height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
+    position: relative;
+}
+.box-inside::before {
+    content: "";
+    position: absolute;
+    background-color: rgb(0, 0, 0);
+
+    z-index: 1 !important;
+    left: 180px;
+    width: 20px;
+    height: 200px;
 }
 .box-inside {
     background-color: rgb(240, 240, 240);
@@ -60,7 +86,7 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
+    z-index: 111;
     width: 600px;
     height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
@@ -84,11 +110,13 @@ header {
     height: 50px;
 }
 .result-span {
+    margin: 0 0.5rem 0 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 30%;
-    height: 100px;
+    align-self: center;
+    width: 25%;
+    height: 90px;
     background-color: rgb(255, 255, 255);
 }
 .from-to-box {
@@ -96,27 +124,67 @@ header {
     display: flex;
     flex-direction: row;
 }
-.bag {
-    width: 200px;
+.list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+.list > ul > li {
+    padding: 0.1rem;
+}
+.list > ul > li > span {
+    padding: 0 0.5rem 0 0;
+}
+.bag {
+    width: 100px;
+}
+.welcome-span {
+    transform: skew(20deg);
+    position: relative;
+}
+.welcome-span::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0.25rem;
+    background-color: #e88945;
 
+    z-index: -1;
+    transform: skewX(-20deg); /* Adjust the angle as needed */
+}
 .latest {
     width: 35vw;
     height: 100vh;
     overflow: scroll;
-    padding: 1rem;
+
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+        rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+        rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    background: linear-gradient(45deg, #d47940, #004991);
 }
 .latest-head {
-    padding: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: column;
+}
+.table-head {
+    background-color: #000000;
+    color: white;
 }
 .currency-table {
+    color: white;
+    font-weight: bold;
     width: 100%;
     height: 100%;
     border-collapse: collapse;
 }
 .currency-table th,
 .currency-table td {
-    border: 1px solid #ddd;
+    border: 1.5px solid #000000;
     padding: 8px;
     text-align: left;
 }
@@ -152,6 +220,7 @@ option {
     width: 100%;
     height: 50px;
 }
+
 /* .flaged {
     width: 50px;
     height: 50px;
@@ -171,3 +240,41 @@ option {
     border-left: 25px solid transparent;
     border-right: 25px solid transparent;
 } */
+.loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto; /* Adjust the margin based on your layout */
+}
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+/* Define custom scrollbar width and color */
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, #d47940, #004991);
+    border-radius: 5px;
+    border: 3px solid #f5f5f5;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, #ff9857, #006fdf);
+}
