@@ -37,9 +37,19 @@ export const Latest = () => {
 
     return (
         <div className="latest">
+            <div className="latest-head">
+                <h2>Pick a desired date to check rates that day</h2>
+                <input
+                    type="text"
+                    value={dates}
+                    onChange={handleDate}
+                    placeholder="YYYY-MM-DD"
+                    className="date"
+                />
+            </div>
             <table className="currency-table">
                 <thead>
-                    <tr>
+                    <tr style={{ backgroundColor: "#f1f5f0" }}>
                         <th>Country</th>
                         <th>Currency</th>
                         <th>Rate</th>
@@ -65,31 +75,6 @@ export const Latest = () => {
                     ))}
                 </tbody>
             </table>
-            {/* <div>
-                {Object.entries(rates).map(([currency, rate]) => (
-                    <div key={currency} className="currency-box">
-                        <span>
-                            {currencyFlags[currency] ? (
-                                <img
-                                    src={currencyFlags[currency]}
-                                    alt={`${currency} flag`}
-                                    className="flag"
-                                />
-                            ) : (
-                                currency
-                            )}
-                        </span>
-                        <span>{currency}</span>
-                        <span>{rate}</span>
-                    </div>
-                ))}
-            </div> */}
-            <input
-                type="text"
-                value={dates}
-                onChange={handleDate}
-                placeholder="YYYY-MM-DD"
-            />
         </div>
     );
 };

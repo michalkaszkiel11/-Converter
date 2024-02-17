@@ -4,7 +4,9 @@ import { Latest } from "./Latest";
 import { To } from "./To";
 import { useState, useEffect } from "react";
 import { Box } from "./Box";
-
+import { Header } from "./Header";
+import inter from "./images/interactive.png";
+import bag from "./images/dollarbag.png";
 function App() {
     const [amount, setAmount] = useState(null);
     const [from, setFrom] = useState("");
@@ -46,13 +48,41 @@ function App() {
         <div className="App">
             <Latest />
             <Main>
-                <input type="text" value={amount} onChange={handleAmount} />
                 <Box>
-                    <From handleFrom={handleFrom} from={from} />
-                    <To handleTo={handleTo} to={to} />
+                    <div className="shop">
+                        <img
+                            src={inter}
+                            alt="shop"
+                            style={{ width: "200px", height: "542.891px" }}
+                        />
+                        <div className="box-inside">
+                            <Header />
+                            <div className="row">
+                                <div className="column">
+                                    <input
+                                        type="text"
+                                        value={amount}
+                                        onChange={handleAmount}
+                                        className="amount"
+                                    />
+                                    <div className="from-to-box">
+                                        <From
+                                            handleFrom={handleFrom}
+                                            from={from}
+                                        />
+                                        <To handleTo={handleTo} to={to} />
+                                    </div>
+                                </div>
+                                <span className="result-span">
+                                    {result}
+                                    {to}
+                                </span>
+                            </div>
+                            <img src={bag} alt="" className="bag" />
+                        </div>
+                    </div>
                 </Box>
             </Main>
-            <span>{result}</span>
         </div>
     );
 }
