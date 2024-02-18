@@ -60,11 +60,7 @@ function App() {
                 <Welcome />
                 <Box>
                     <div className="shop">
-                        <img
-                            src={inter}
-                            alt="shop"
-                            style={{ width: "200px", height: "542.891px" }}
-                        />
+                        <img src={inter} alt="shop" className="shop-img" />
 
                         <div className="box-inside">
                             <Header />

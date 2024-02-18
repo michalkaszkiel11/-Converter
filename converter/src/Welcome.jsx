@@ -4,7 +4,7 @@ export const Welcome = () => {
     return (
         <div className="welcome-box">
             <h1>
-                Welcome to CurrencyConverter{" "}
+                Welcome to the CurrencyConverter{" "}
                 <span className="welcome-span">+ Plus!</span>
             </h1>
             <section>
