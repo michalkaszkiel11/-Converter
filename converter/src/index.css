@@ -69,12 +69,12 @@ body {
     justify-content: center;
     align-items: center;
     position: relative;
+    gap: 1rem;
 }
 .box-inside::before {
     content: "";
     position: absolute;
     background-color: rgb(0, 0, 0);
-
     z-index: 1 !important;
     left: 180px;
     width: 20px;
@@ -300,7 +300,7 @@ option {
         height: fit-content;
     }
     .box-inside::before {
-        left: 110px;
+        left: 126px;
         width: 10px;
     }
 }
@@ -313,7 +313,7 @@ option {
         height: fit-content !important;
     }
     .box-inside::before {
-        left: 95px;
+        left: 111px;
         width: 5px;
     }
     .welcome-box > h1 {
@@ -332,6 +332,7 @@ option {
 @media only screen and (min-width: 769px) and (max-width: 992px) {
     .shop {
         width: 500px;
+        gap: 0;
     }
     .shop-img {
         width: 90px !important;
@@ -385,6 +386,7 @@ option {
     }
     .shop {
         width: 100vw;
+        gap: 0;
     }
     .shop-img {
         width: 120px !important;
@@ -450,6 +452,7 @@ option {
     }
     .shop {
         width: 100vw;
+        gap: 0;
     }
     .shop-img {
         width: 120px !important;
@@ -509,6 +512,9 @@ option {
     }
 }
 @media only screen and (max-width: 465px) {
+    .shop {
+        gap: 0;
+    }
     .shop-img {
         width: 100px !important;
     }
