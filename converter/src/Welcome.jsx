@@ -1,4 +1,3 @@
-import { Skew } from "./Skew";
 import bag from "./images/dollarbag.png";
 export const Welcome = () => {
     return (

@@ -5,13 +5,12 @@ import { To } from "./To";
 import { useState, useEffect } from "react";
 import { Box } from "./Box";
 import { Header } from "./Header";
-import inter from "./images/interactive.png";
 import { Welcome } from "./Welcome";
 
 function App() {
     const [amount, setAmount] = useState(null);
-    const [from, setFrom] = useState("");
-    const [to, setTo] = useState("");
+    const [from, setFrom] = useState("USD");
+    const [to, setTo] = useState("USD");
     const [result, setResult] = useState(0);
     const [rates, setRates] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -60,8 +59,8 @@ function App() {
                 <Welcome />
                 <Box>
                     <div className="shop">
-                        <img src={inter} alt="shop" className="shop-img" />
-
+                        {/* <img src={inter} alt="shop" className="shop-img" /> */}
+                        <div className="shop-img"></div>
                         <div className="box-inside">
                             <Header />
                             <div className="row">
@@ -85,7 +84,7 @@ function App() {
                                         <div className="loading-spinner"></div>
                                     ) : (
                                         <span>
-                                            {result}
+                                            {result.toFixed(2)}
                                             {to}
                                         </span>
                                     )}

@@ -6,7 +6,7 @@
 .row {
     gap: 1rem;
     width: 100%;
-    height: 100%;
+
     display: flex;
     flex-direction: row;
 }
@@ -21,6 +21,7 @@ body {
     width: 100vw;
     height: 100%;
     display: flex;
+    font-size: 16px;
 }
 .App {
     width: 100vw;
@@ -42,7 +43,7 @@ body {
     background-position: right;
     background-repeat: no-repeat;
     background-size: contain;
-    gap: 3rem;
+    gap: 1rem;
 }
 .welcome-box {
     color: white;
@@ -51,43 +52,66 @@ body {
     gap: 1rem;
     padding: 2rem;
     width: 90%;
-    height: fit-content;
+    height: 35%;
     background: linear-gradient(90deg, #d47940, #004991);
     border-radius: 2rem;
     box-shadow: rgba(0, 0, 0, 0.04) 0px 3px 5px;
+    margin-top: 1rem;
+}
+.welcome-box > h1 {
+    font-size: 2vw;
+    height: 20%;
+    width: 100%;
+}
+.welcome-box > section > p {
+    font-size: 1vw;
+
+    text-align: justify;
+    height: 35%;
+    width: 100%;
+}
+.list {
+    height: 40%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.list > ul > li {
+    font-size: 0.8vw;
+    padding: 0.1rem;
+}
+.list > ul > li > span {
+    padding: 0 0.5rem 0 0;
+}
+.bag {
+    width: 100px;
 }
 .currencies {
     height: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 60%;
 }
 .shop {
-    width: 800px;
-    height: fit-content;
+    width: 70%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
     gap: 1rem;
 }
-.box-inside::before {
-    content: "";
-    position: absolute;
-    background-color: rgb(0, 0, 0);
-    z-index: 1 !important;
-    left: 180px;
-    width: 20px;
-    height: 200px;
-}
+
 .box-inside {
+    width: 100%;
     background-color: rgb(240, 240, 240);
     padding: 1rem;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     z-index: 111;
-    width: 600px;
     height: fit-content;
     box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px,
         rgba(0, 0, 0, 0.23) 0px 6px 6px;
@@ -100,8 +124,12 @@ header {
     justify-content: space-between;
 }
 .shop-img {
-    width: 200px;
-    height: 542.891px;
+    width: 25%;
+    height: 100%;
+    background-image: url(./images/interactive.png);
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 .logo {
     width: 80px;
@@ -143,7 +171,7 @@ header {
     padding: 0 0.5rem 0 0;
 }
 .bag {
-    width: 100px;
+    width: 10%;
 }
 .welcome-span {
     transform: skew(20deg);
@@ -285,58 +313,13 @@ option {
 ::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(45deg, #ff9857, #006fdf);
 }
-
 @media only screen and (min-width: 1201px) {
     .shop {
-        width: 600px;
-        height: fit-content;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        position: relative;
-    }
-    .shop-img {
-        width: 120px;
-        height: fit-content;
-    }
-    .box-inside::before {
-        left: 126px;
-        width: 10px;
-    }
-}
-@media only screen and (min-width: 993px) and (max-width: 1200px) {
-    .shop {
-        width: 550px;
-    }
-    .shop-img {
-        width: 100px !important;
-        height: fit-content !important;
-    }
-    .box-inside::before {
-        left: 111px;
-        width: 5px;
-    }
-    .welcome-box > h1 {
-        font-size: 1.5rem;
-    }
-    .welcome-box > section > p {
-        font-size: 1rem;
-        text-align: justify;
-    }
-
-    .list > ul > li {
-        padding: 0.1rem;
-        font-size: 0.8rem;
-    }
-}
-@media only screen and (min-width: 769px) and (max-width: 992px) {
-    .shop {
-        width: 500px;
         gap: 0;
+        width: 85%;
     }
     .shop-img {
-        width: 90px !important;
-        height: fit-content !important;
+        width: 30%;
     }
     .box-inside::before {
         left: 85px;
@@ -345,25 +328,26 @@ option {
     .welcome-box {
         width: 95%;
         gap: 0.75rem;
+        height: 40%;
     }
     .welcome-box > h1 {
-        font-size: 1.6rem;
+        font-size: 2.4vw;
     }
     .welcome-box > section > p {
-        font-size: 1rem;
+        font-size: 1.4vw;
         text-align: justify;
     }
 
     .list > ul > li {
         padding: 0;
-        font-size: 0.9rem;
+        font-size: 1.2vw;
     }
 
     .list > ul > li > span {
         padding: 0;
     }
     .bag {
-        width: 80px;
+        width: 15%;
     }
     .latest {
         width: 40vw;
@@ -375,11 +359,92 @@ option {
             rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
         background: linear-gradient(45deg, #d47940, #004991);
     }
-    .box {
-        width: 60vw;
-        gap: 5rem;
+}
+@media only screen and (min-width: 993px) and (max-width: 1200px) {
+    .shop {
+        gap: 0;
+        width: 85%;
+    }
+    .shop-img {
+        width: 30%;
+    }
+    .box-inside::before {
+        left: 85px;
+        width: 5px;
+    }
+    .welcome-box {
+        width: 95%;
+        gap: 0.75rem;
+        height: 40%;
+    }
+    .welcome-box > h1 {
+        font-size: 2.5vw;
+    }
+    .welcome-box > section > p {
+        font-size: 1.45vw;
+        text-align: justify;
+    }
+
+    .list > ul > li {
+        padding: 0;
+        font-size: 1.4vw;
+    }
+
+    .list > ul > li > span {
+        padding: 0;
+    }
+    .bag {
+        width: 15%;
+    }
+    .latest {
+        width: 40vw;
     }
 }
+
+@media only screen and (min-width: 769px) and (max-width: 992px) {
+    .App {
+        flex-direction: column-reverse;
+    }
+    .shop {
+        width: 100vw;
+        gap: 0;
+        padding: 1rem;
+    }
+    .welcome-box {
+        width: 95%;
+        height: 40%;
+    }
+    .welcome-box > h1 {
+        font-size: 4vw;
+    }
+    .welcome-box > section > p {
+        font-size: 2.4vw;
+        text-align: justify;
+    }
+
+    .list > ul > li {
+        padding: 0;
+        font-size: 2.2vw;
+    }
+
+    .list > ul > li > span {
+        padding: 0;
+    }
+    .bag {
+        width: 18%;
+    }
+    .latest {
+        width: 100vw;
+    }
+    .box {
+        width: 100vw;
+        gap: 1rem;
+    }
+    .box-inside {
+        padding: 2rem;
+    }
+}
+
 @media only screen and (min-width: 601px) and (max-width: 768px) {
     .App {
         flex-direction: column-reverse;
@@ -387,65 +452,40 @@ option {
     .shop {
         width: 100vw;
         gap: 0;
-    }
-    .shop-img {
-        width: 120px !important;
-        height: fit-content !important;
-        z-index: 111;
-    }
-    .box-inside::before {
-        left: 153px;
-        width: 8px;
+        padding: 1rem;
     }
     .welcome-box {
         width: 95%;
-        gap: 0.75rem;
+        height: 45%;
     }
     .welcome-box > h1 {
-        font-size: 1.4rem;
+        font-size: 3.5vw;
     }
     .welcome-box > section > p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         text-align: justify;
     }
 
     .list > ul > li {
         padding: 0;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .list > ul > li > span {
         padding: 0;
     }
     .bag {
-        width: 80px;
+        width: 15%;
     }
     .latest {
         width: 100vw;
-        height: 100vh;
     }
     .box {
         width: 100vw;
-        gap: 4rem;
-    }
-    .box-inside {
-        width: 400px;
-    }
-    header {
-        width: 100%;
-        padding: 0 1rem 1rem 0;
-        height: fit-content;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .logo {
-        width: 80px;
-    }
-    .change-h2 {
-        padding: 0.5rem;
-        font-size: 1.2rem;
+        gap: 1rem;
     }
 }
+
 @media only screen and (max-width: 600px) {
     .App {
         flex-direction: column-reverse;
@@ -453,186 +493,135 @@ option {
     .shop {
         width: 100vw;
         gap: 0;
-    }
-    .shop-img {
-        width: 120px !important;
-        height: fit-content !important;
-        z-index: 111;
-    }
-    .box-inside::before {
-        display: none;
+        padding: 1rem;
     }
     .welcome-box {
         width: 95%;
-        gap: 0.75rem;
+        height: 45%;
     }
     .welcome-box > h1 {
-        font-size: 1.4rem;
+        font-size: 3.5vw;
     }
     .welcome-box > section > p {
-        font-size: 0.9rem;
+        font-size: 1rem;
         text-align: justify;
     }
 
     .list > ul > li {
         padding: 0;
-        font-size: 0.85rem;
+        font-size: 0.9rem;
     }
 
     .list > ul > li > span {
         padding: 0;
     }
     .bag {
-        width: 80px;
+        width: 15%;
     }
     .latest {
         width: 100vw;
-        height: 100vh;
     }
     .box {
         width: 100vw;
-        gap: 4rem;
-    }
-    .box-inside {
-        width: 400px;
-    }
-    header {
-        width: 100%;
-        padding: 0 1rem 1rem 0;
-        height: fit-content;
-        align-items: center;
-        justify-content: space-between;
-    }
-    .logo {
-        width: 80px;
-    }
-    .change-h2 {
-        padding: 0.5rem;
-        font-size: 1.2rem;
+        gap: 1rem;
     }
 }
+
 @media only screen and (max-width: 465px) {
+    .App {
+        flex-direction: column-reverse;
+    }
     .shop {
+        width: 100vw;
         gap: 0;
-    }
-    .shop-img {
-        width: 100px !important;
-    }
-
-    .welcome-box {
-        gap: 1rem;
-    }
-
-    .box {
-        gap: 3rem;
-    }
-
-    .logo {
-        width: 70px;
-    }
-    .change-h2 {
-        padding: 0.5rem;
-        font-size: 1.15rem;
-    }
-}
-@media only screen and (max-width: 372px) {
-    .shop-img {
-        width: 80px !important;
-        height: fit-content !important;
-        z-index: 111;
-    }
-
-    .list > ul > li {
-        padding: 0;
-        font-size: 0.85rem;
-    }
-
-    .list > ul > li > span {
-        padding: 0;
-    }
-    .bag {
-        width: 75px;
-    }
-    .box {
-        gap: 2rem;
-    }
-
-    .logo {
-        width: 65px;
-    }
-    .change-h2 {
-        padding: 0.5rem;
-        font-size: 1.2rem;
-    }
-    .result-span {
-        margin: 0;
-    }
-}
-@media only screen and (max-width: 372px) {
-    .shop-img {
-        width: 100px !important;
-    }
-
-    .welcome-box {
-        gap: 1rem;
-    }
-
-    .box {
-        gap: 3rem;
-    }
-
-    .logo {
-        width: 70px;
-    }
-    .change-h2 {
-        padding: 0.5rem;
-        font-size: 1.15rem;
-    }
-}
-@media only screen and (max-width: 372px) {
-    .shop-img {
-        width: 60px !important;
-        height: fit-content !important;
-        z-index: 111;
+        padding: 1rem;
     }
     .welcome-box {
         width: 95%;
-        gap: 0.75rem;
-        padding: 1.75rem;
+        height: 55%;
     }
     .welcome-box > h1 {
-        font-size: 1.2rem;
+        font-size: 5vw;
     }
     .welcome-box > section > p {
-        font-size: 0.9rem;
+        font-size: 3.5vw;
         text-align: justify;
     }
+    /* .welcome-box > ul {
+        padding: 0;
+    } */
     .list > ul > li {
         padding: 0;
-        font-size: 0.85rem;
+        font-size: 3vw;
     }
 
     .list > ul > li > span {
         padding: 0;
     }
     .bag {
-        width: 75px;
+        width: 15%;
+    }
+    .latest {
+        width: 100vw;
     }
     .box {
-        gap: 2rem;
-    }
-
-    .logo {
-        width: 55px;
+        width: 100vw;
+        gap: 1rem;
     }
     .change-h2 {
-        padding: 0.5rem;
-        font-size: 1rem;
-    }
-    .result-span {
-        margin: 0;
+        font-size: 1.4rem;
     }
 }
+
+@media only screen and (max-width: 359px) {
+    .App {
+        flex-direction: column-reverse;
+    }
+    .shop {
+        width: 100vw;
+        gap: 0;
+        padding: 1rem;
+    }
+    .welcome-box {
+        width: 95%;
+        height: 95vh;
+    }
+    .welcome-box > h1 {
+        font-size: 5vw;
+        height: 10%;
+    }
+    .welcome-box > section > p {
+        font-size: 4vw;
+        text-align: justify;
+        height: 25%;
+    }
+    .list {
+        flex-direction: column;
+    }
+    .list > ul > li {
+        padding: 0;
+        font-size: 0.9rem;
+    }
+
+    .list > ul > li > span {
+        padding: 0;
+    }
+    .bag {
+        width: 20%;
+    }
+    .latest {
+        width: 100vw;
+    }
+    .box {
+        width: 100vw;
+        height: 160vh;
+        gap: 1rem;
+    }
+    .currencies {
+        height: 100vh;
+    }
+}
+/*
 @media only screen and (max-width: 372px) and (max-height: 600px) {
     .shop-img {
         width: 60px !important;
@@ -676,4 +665,4 @@ option {
     .result-span {
         margin: 0;
     }
-}
+} */
