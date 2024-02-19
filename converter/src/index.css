@@ -177,6 +177,7 @@ header {
     transform: skew(20deg);
     position: relative;
 }
+
 .welcome-span::before {
     content: "";
     position: absolute;
@@ -292,6 +293,14 @@ option {
         transform: rotate(360deg);
     }
 }
+.fade-in {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+}
 /* Define custom scrollbar width and color */
 ::-webkit-scrollbar {
     width: 15px;
@@ -321,26 +330,34 @@ option {
     .shop-img {
         width: 30%;
     }
+    .box-inside {
+        position: relative;
+    }
     .box-inside::before {
-        left: 85px;
-        width: 5px;
+        position: absolute;
+        content: "";
+        color: black;
+        background-color: #000000;
+        left: -15px;
+        width: 15px;
+        height: 200px;
     }
     .welcome-box {
         width: 95%;
-        gap: 0.75rem;
+        gap: 1rem;
         height: 40%;
     }
     .welcome-box > h1 {
-        font-size: 2.4vw;
+        font-size: 2vw;
     }
     .welcome-box > section > p {
-        font-size: 1.4vw;
+        font-size: 1.05vw;
         text-align: justify;
     }
 
     .list > ul > li {
         padding: 0;
-        font-size: 1.2vw;
+        font-size: 1vw;
     }
 
     .list > ul > li > span {
@@ -444,7 +461,50 @@ option {
         padding: 2rem;
     }
 }
+@media only screen and (max-width: 940px) and (orientation: landscape) {
+    .box {
+        height: 200vh;
+    }
+    .shop {
+        gap: 0;
+        width: 95%;
+        height: 90vh;
+    }
+    .shop-img {
+        width: 30%;
+    }
+    .box-inside::before {
+        left: 85px;
+        width: 5px;
+    }
+    .welcome-box {
+        width: 95%;
+        gap: 0.75rem;
+        height: 100vh;
+    }
+    .welcome-box > h1 {
+        font-size: 3vw;
+    }
+    .welcome-box > section > p {
+        font-size: 1.65vw;
+        text-align: justify;
+    }
 
+    .list > ul > li {
+        padding: 0;
+        font-size: 1.6vw;
+    }
+
+    .list > ul > li > span {
+        padding: 0;
+    }
+    .bag {
+        width: 15%;
+    }
+    .latest {
+        width: 100vw;
+    }
+}
 @media only screen and (min-width: 601px) and (max-width: 768px) {
     .App {
         flex-direction: column-reverse;
@@ -572,7 +632,54 @@ option {
         font-size: 1.4rem;
     }
 }
+@media only screen and (max-width: 390px) {
+    .App {
+        flex-direction: column-reverse;
+    }
+    .shop {
+        width: 100vw;
+        gap: 0;
+        padding: 1rem;
+    }
+    .welcome-box {
+        width: 95%;
+        height: 55%;
+    }
+    .welcome-box > h1 {
+        font-size: 5vw;
+    }
+    .welcome-box > section > p {
+        font-size: 3.5vw;
+        text-align: justify;
+    }
+    /* .welcome-box > ul {
+        padding: 0;
+    } */
+    .list > ul > li {
+        padding: 0;
+        font-size: 3vw;
+    }
 
+    .list > ul > li > span {
+        padding: 0;
+    }
+    .bag {
+        width: 15%;
+    }
+    .latest {
+        width: 100vw;
+    }
+    .box {
+        width: 100vw;
+        gap: 1rem;
+    }
+    .change-h2 {
+        font-size: 1.4rem;
+    }
+    .shop-img {
+        display: none;
+    }
+}
 @media only screen and (max-width: 359px) {
     .App {
         flex-direction: column-reverse;
@@ -619,6 +726,9 @@ option {
     }
     .currencies {
         height: 100vh;
+    }
+    .shop-img {
+        display: none;
     }
 }
 /*

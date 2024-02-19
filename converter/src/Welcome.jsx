@@ -1,7 +1,7 @@
 import bag from "./images/dollarbag.png";
-export const Welcome = () => {
+export const Welcome = ({ elementRef }) => {
     return (
-        <div className="welcome-box">
+        <div className="welcome-box" ref={elementRef}>
             <h1>
                 Welcome to the CurrencyConverter{" "}
                 <span className="welcome-span">+ Plus!</span>
