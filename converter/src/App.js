@@ -2,16 +2,14 @@ import { Main } from "./Main";
 import { From } from "./From";
 import { Latest } from "./Latest";
 import { To } from "./To";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Box } from "./Box";
 import { Header } from "./Header";
-import inter from "./images/interactive.png";
 import { Welcome } from "./Welcome";
-
 function App() {
     const [amount, setAmount] = useState(null);
-    const [from, setFrom] = useState("");
-    const [to, setTo] = useState("");
+    const [from, setFrom] = useState("USD");
+    const [to, setTo] = useState("USD");
     const [result, setResult] = useState(0);
     const [rates, setRates] = useState([]);
     const [loading, setLoading] = useState(false);
@@ -25,7 +23,29 @@ function App() {
     const handleTo = (e) => {
         setTo(e.target.value);
     };
+    const elementRef = useRef();
 
+    useEffect(() => {
+        const handleScroll = () => {
+            const element = elementRef.current;
+            if (element) {
+                const boundingBox = element.getBoundingClientRect();
+                const isVisible = boundingBox.top < window.innerHeight;
+
+                if (isVisible) {
+                    element.classList.add("visible");
+                } else {
+                    element.classList.remove("visible");
+                }
+            }
+        };
+        window.addEventListener("scroll", handleScroll);
+        handleScroll();
+        // Clean up
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
     useEffect(() => {
         const controller = new AbortController();
         async function fetchData() {
@@ -56,12 +76,13 @@ function App() {
             ) : (
                 <Latest rates={rates} setRates={setRates} />
             )}
-            <Main>
+            <Main elementRef={elementRef}>
                 <Welcome />
+
                 <Box>
                     <div className="shop">
-                        <img src={inter} alt="shop" className="shop-img" />
-
+                        {/* <img src={inter} alt="shop" className="shop-img" /> */}
+                        <div className="shop-img"></div>
                         <div className="box-inside">
                             <Header />
                             <div className="row">
@@ -85,7 +106,7 @@ function App() {
                                         <div className="loading-spinner"></div>
                                     ) : (
                                         <span>
-                                            {result}
+                                            {result.toFixed(2)}
                                             {to}
                                         </span>
                                     )}

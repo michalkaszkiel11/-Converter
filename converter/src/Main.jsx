@@ -1,3 +1,7 @@
-export const Main = ({ children }) => {
-    return <main className="box">{children}</main>;
+export const Main = ({ children, elementRef }) => {
+    return (
+        <main className="box fade-in" ref={elementRef}>
+            {children}
+        </main>
+    );
 };
